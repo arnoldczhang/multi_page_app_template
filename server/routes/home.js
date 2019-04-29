@@ -1,21 +1,21 @@
 const ejs = require('ejs')
 const { getTemplate } = require('../common/utils')
 
-const homeRoute = function (app) {
-	app.get('/', async (req, res, next) => {
+const homeRoute = function (router) {
+	router.get('/', async (ctx, next) => {
 		try {
 			const template = await getTemplate('index.ejs')
 			let html = ejs.render(template, { title: '首页' })
-			res.send(html)
+			ctx.body = html;
 		} catch (e) {
 			next(e)
 		}
 	})
-	app.get('/home', async (req, res, next) => {
+	router.get('/home', async (ctx, next) => {
 		try {
 			const template = await getTemplate('index.ejs')
 			let html = ejs.render(template, { title: '首页' })
-			res.send(html)
+			ctx.body = html;
 		} catch (e) {
 			next(e)
 		}
