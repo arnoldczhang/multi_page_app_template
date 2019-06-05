@@ -13,7 +13,7 @@ const { routerFactory } = require('../routes');
 const CONFIG = require('../../build/config');
 const port = CONFIG.PORT;
 const isDev = process.env.NODE_ENV === 'development';
-const app = new Koa || express();
+const app = new Koa();
 const webpackConfig = require('../../build/webpack.dev.config');
 const compiler = webpack(webpackConfig);
 const router = new Router();
@@ -36,7 +36,7 @@ if (isDev) {
 
 routerFactory(router);
 
-app.use(staticServer(path.resolve(__dirname, isDev ? '../../src' : `../../${CONFIG.DIR.DIST}`)))
+app.use(staticServer(path.resolve(__dirname, isDev ? '../../src' : `../../dist`)))
   .use(body())
   .use(logger())
   .use(compress())

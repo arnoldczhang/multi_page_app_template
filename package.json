@@ -6,9 +6,9 @@
 	"scripts": {
 		"clear": "rimraf dist",
 		"deploy": "npm run build && npm run server",
-		"server": "cross-env NODE_ENV=production node ./server/bin/server.js",
+		"server": "cross-env NODE_ENV=production node ./server/bin/server.ts",
 		"debug": "cross-env NODE_ENV=development ndb ./server/bin/server.js",
-		"dev": "cross-env NODE_ENV=development nodemon --watch server ./server/bin/server.js",
+		"dev": "cross-env NODE_ENV=development nodemon --watch server ./server/bin/server.ts",
 		"build": "npm run clear && cross-env NODE_ENV=production webpack --env production --config ./build/webpack.prod.config.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
